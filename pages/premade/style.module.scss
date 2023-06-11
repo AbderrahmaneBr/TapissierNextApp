@@ -1,0 +1,694 @@
+@import '../../styles/sub/variables.scss';
+@import '../../styles/sub/animations.scss';
+
+@mixin softAnimation {
+    &:hover {
+        transform-origin: center;
+        transform: translateY(-2px);
+    }
+}
+@mixin isImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.error {
+    color: $red;
+    font-size: 12px;
+}
+
+.main {
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75em;
+    
+    hr {
+        width: 30%;
+        opacity: .3;
+        border-radius: 100%;
+        margin: 0 auto;
+    }
+    
+    .searchContainer {
+        width: 60vw;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        input {
+            text-indent: 1.5em;
+            width: 100%;
+        }
+        
+        svg {
+            position: absolute;
+            left: 1em;
+            color: $grey;
+            font-size: 18px;
+        }
+    }
+    .content {
+        width: 60vw;
+        max-width: 800px;
+        display: flex;
+        justify-content: center;
+        gap: .5em;
+
+
+        .categories {
+            padding: 1em;
+            width: 22%;
+            border: 1px solid $selectBoxGrey;
+            display: flex;
+            flex-direction: column;
+            gap: .85em;
+            // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.125);
+
+            .title {
+                font-size: 16px;
+                color: $black-1;
+            }
+            .categoryContainer {
+                display: flex;
+                flex-direction: column;
+                gap: .25em;
+
+                .category {
+                    display: flex;
+                    align-items: center;
+                    gap: .5em;
+                    color: $black;
+                    border: 1px solid $selectBoxGrey;
+                    padding: .65em 1em;
+                    cursor: pointer;
+                    user-select: none;
+
+                    p {
+                        font-size: 16px;
+                    }
+                    
+                    &:hover {
+                        background-color: $white-1;
+                    }
+                    svg {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        .products{
+            // padding: .5em;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+
+            .title {
+                font-size: 18px;
+                color: $black-1;
+            }
+
+            .productsContainer {
+                display: grid;
+                grid-template-columns: 33.3333% 33.3333% 33.3333%;
+                justify-content: center;
+                
+                gap: .5em;
+                width: 100%;
+                
+            }
+
+            .errorLoadingData {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: .5em;
+                margin: 5em 0;
+
+                svg {
+                    font-size: 55px;
+                    color: $black-1;
+                }
+                button {
+                    border: 2px solid $black;
+                    background-color: transparent;
+                    color: $black;
+                    padding: .75em 2em;
+                    margin-top: .5em;
+
+                    &:hover {
+                        background-color: $white-1;
+                        transform: none;
+                    }
+                }
+                p {
+                    color: $black;
+                }
+            }
+        }
+        }
+        .productsLoading {
+            display: grid;
+            grid-template-columns: 33.3333% 33.3333% 33.3333%;
+            gap: .5em;
+            width: 100%;
+            mask-image: linear-gradient(black 40%, transparent 100%);
+
+            .square {
+                aspect-ratio: 1/1;
+                width: 100%;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .8;
+                
+            }
+        }
+        
+        #checked {
+            color: $highlightColor;
+        }
+        
+    }
+    .product {
+        cursor: pointer;
+        border: 1px solid $selectBoxGrey;
+
+        .imgContainer {
+            aspect-ratio: 1/1;
+            
+            & > .img {
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .info {
+            padding: .5em;
+            color: $black;
+
+            h1 {
+                font-size: 16px;
+                // text-transform: capitalize;
+            }
+            p {
+                font-size: 14px;
+                // text-transform: capitalize;
+                max-width: 16em;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+
+        @include softAnimation();
+    }
+
+
+.nav {
+    display: flex;
+    align-items: center;
+    padding: .35em 1em;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 60vw;
+    // background-color: $white-1;
+    gap: .5em;
+    color: $highlightColor;
+
+    .caret {
+        font-size: 18px;
+        color: $black;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: .35em;
+        
+        svg {
+        }
+        a {
+            color: $highlightColor;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.article {
+    display: flex;
+    flex-direction: column;
+
+
+    .sec1 {
+        width: 60vw;
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        gap: 1.5em;
+        margin: 3em auto;
+
+        .images {
+            display: flex;
+            width: 50%;
+            align-items: center;
+            gap: .25em;
+
+            .all {
+                display: flex;
+                flex-direction: column;
+                min-width: 20%;
+                height: 100%;
+                gap: .25em;
+
+                .img {
+                    min-width: 100%;
+                    aspect-ratio: 1/1;
+                    background-color: $image;
+                    cursor: pointer;
+                    border: 1px solid $border;
+
+                    @include isImage();
+                }
+                .loadingImg {
+                    background-color: $image;
+                    min-width: 100%;
+                    aspect-ratio: 1/1;
+                    background: linear-gradient(90deg, $loading1, $image);
+                    animation: loadingAnimation 1.5s ease-in-out infinite;
+                    background-size: 200% 200%;
+                    opacity: .4;
+
+                }
+                #selected {
+                    border: 3px solid $highlightColor;
+                }
+            }
+            .main {
+                height: 100%;
+                min-width: 80%;
+                aspect-ratio: 1/1;
+                background-color: $image;
+                margin: 0;
+                // cursor: zoom-in;
+                transition: 0s;
+                border: 1px solid $border;
+
+                @include isImage();
+            }
+            .loadingMain {
+                height: 100%;
+                min-width: 80%;
+                aspect-ratio: 1/1;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1.5s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .6;
+            }
+
+        }
+        .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            gap: .5em;
+            width: 50%;
+            padding: 1em;
+            margin-top: 1em;
+            color: $black;
+
+            h1 {
+                color: $highlightColor;
+            }
+            
+            h3 {
+                font-weight: 600;
+            }
+
+            .loadingTitle {
+                height: 2em;
+                width: 70%;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1.5s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .4;
+            }
+            .loadingCat {
+                height: 1.5em;
+                width: 40%;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1.5s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .4;
+            }
+            .loadingDesc {
+                height: 6em;
+                width: 100%;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1.5s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .3;
+            }
+            .loadingButton {
+                height: 3em;
+                width: 100%;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1.5s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .5;
+                margin-top: .5em;
+            }
+
+            button {
+               margin-top: 1em;
+            }
+            .date {
+                font-size: 12px;
+            }
+        }
+    }
+    .sec2 {
+        width: 65vw;
+        max-width: 800px;
+        margin: 3em auto;
+
+        .title {
+            font-size: 18px;
+        }
+        .table {
+            margin-top: .75em;
+            border-collapse: collapse;
+            width: 100%;
+
+            tr {
+                border: 1px solid $border;
+
+                :nth-child(1){
+                    text-align: left;
+                    font-weight: bold;
+                    font-size: 14px;
+                }
+                :nth-child(2){
+                    text-align: right;
+                }
+
+                &:nth-child(2n) {
+                    background-color:  $tableGrey;
+                }
+            }
+            td {
+                padding: .6em 2em;
+            }
+        }
+    }
+    
+    .sec3 {
+        display: flex;
+        flex-direction: column;
+        margin: 3em auto;
+        width: 70vw;
+        max-width: 800px;
+        gap: 1em;
+        overflow: hidden;
+        position: relative;
+        
+        .title {
+            font-size: 18px;
+        }
+        .overlay {
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: $overflowGradient;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .moreProducts {
+            display: flex;
+            gap: .5em;
+            width: 100%;
+            overflow-x: scroll;
+            margin-bottom: -1em;
+            scroll-behavior: smooth;
+            min-height: 20em;
+
+            .square {
+                aspect-ratio: 1/1;
+                width: 16em;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .8;
+            }
+            
+            .product {
+                width: 15em;
+            }
+            .loadingCard {
+                width: 100%;
+                aspect-ratio: 1/1;
+                background-color: $image;
+                background: linear-gradient(90deg, $loading1, $image);
+                animation: loadingAnimation 1.5s ease-in-out infinite;
+                background-size: 200% 200%;
+                opacity: .5;
+            }
+        }
+        .button {
+            position: absolute;
+            background-color: $black;
+            opacity: .4;
+            padding: .35em;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1;
+
+            &:hover {
+                opacity: 1;
+            }
+            svg {
+                color: $white;
+                font-size: 48px;
+            }
+        }
+        #L {
+            top: 50%;
+            left: 1em;
+            transform: translateY(-50%);
+        }
+        #R {
+            top: 50%;
+            right: 1em;
+            transform: translateY(-50%);
+        }
+    }
+
+    .followUp {
+        background-color: $white;
+        padding: 2em;
+        width: 38vw;
+        max-width: 800px;
+        position: relative;
+        transform-origin: center;
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            
+        }
+        
+        .inpContainer {
+            display: flex;
+            flex-direction: column;
+            gap: .35em;
+            margin-bottom: 2.5em;
+        }
+        h1 {
+            font-size: 22px;
+        }
+        button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width:1200px) {
+    .article {
+        .sec1 {
+            width: 70vw;
+        }
+        .followUp {
+            width: 50vw;
+        }
+    }
+    .nav {
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    .main {
+
+        .searchContainer {
+            width: 85vw;
+        }
+        .content {
+            width: 85vw;
+        }
+    }
+    .article {
+        .sec1 {
+            width: 90vw;
+        }
+        .sec2 {
+            width: 85vw;
+        }
+        .sec3 {
+            width: 85vw;
+        }
+        .followUp {
+            width: 60vw;
+        }
+    }
+    .nav {
+        width: 100vw;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .main {
+        .searchContainer {
+            width: 90vw;
+        }
+
+        .content {
+            width: 90vw;
+            .products {
+                .productsContainer {
+                    grid-template-columns: auto auto;
+                }
+            }
+        }
+        .productsLoading {
+            grid-template-columns: auto auto;
+        }
+    }
+    .article {
+        .followUp {
+            width: 80vw;
+            
+        }
+        .sec1 {
+            flex-direction: column;
+            width: 100vw;
+            padding: 0 .25em;
+
+            .images {
+                width: 100%;
+                flex-direction: column-reverse;
+
+                .main {
+                    min-width: 70vw;
+                }
+                .all {
+                    flex-direction: row;
+                    justify-content: center;
+                    .img {
+                        min-width: 10vw;
+                    }
+                    
+                }
+            }
+            .content {
+                width: 100%;
+            }
+        }
+        .sec2 {
+            width: 100vw;
+            padding: 0 .25em;
+        }
+        .sec3 {
+            width: 100vw;
+            padding: 0 .25em;
+        }
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .main {
+        .searchContainer {
+            padding: 0 .25em;
+            width: 100vw;
+        }
+
+        .content {
+            padding: 0 .25em;
+            width: 100vw;
+            .products {
+                .productsContainer {
+                    grid-template-columns: auto;
+                }
+            }
+        }
+        
+        .productsLoading {
+            grid-template-columns: auto;
+        }
+    }
+
+    .article {
+        .followUp {
+            width: 95vw;
+            padding: 1em;
+        }
+        .sec1 {
+            margin-top: 1em;
+            gap: .5em;
+            .images {
+                .main {
+                    min-width: 100%;
+                }
+                .all {
+                    .img {
+                        min-width: 15vw;
+                    }
+                }
+            }
+            .content {
+                font-size: 14px;
+                padding: 0;
+            }
+        }
+    }
+    .nav {
+        gap: 0;
+        padding: .35em 1em;
+
+        li {
+            font-size: 12px;
+        }
+    }
+
+}

@@ -1,0 +1,14 @@
+@keyframes loadingAnimation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+
+@keyframes slideFromLeft {
+    0% {
+        translate: -100% 0;
+    }
+    100% {
+        translate: 0 0;
+    }
+}

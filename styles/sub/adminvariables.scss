@@ -1,0 +1,45 @@
+@mixin inputShadow {
+    box-shadow: 0 5px 23px rgba(138, 149, 158, 0.13);
+}
+@mixin cardShadow {
+    box-shadow: 0 30px 50px rgba(138, 149, 158, 0.2);
+}
+@mixin softShadow {
+    box-shadow: 0 1px 60px rgba(138, 149, 158, 0.2);
+}
+
+@keyframes movingGradient {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+
+@mixin animatedGradient {
+    background-size: 200% 200%;
+    animation: movingGradient 5s infinite ;
+}
+@mixin animatedGradientSlow {
+    background-size: 200% 200%;
+    animation: movingGradient 10s infinite ;
+}
+
+$black: black;
+$white: white;
+$whiteHighlight: #f4f6ff;
+$background: #f7f7fb;
+$black-1: #3e4051;
+$greyTransp: rgba(128, 128, 128, 0.25);
+$grey: #868686;
+$inputColor: #F1F1F1;
+$primaryGradient: linear-gradient(125deg,#2C5AFF, #7E2FFF, #ff2f4b);
+$primaryGradientHover: linear-gradient(125deg, #2C5AFF, #7E2FFF, #ff2f4b);
+$green:rgb(67, 238, 104);
+$red: rgb(235, 40, 85);
+$primaryColor1: #7E2FFF;
+$primaryColor1-1: hsla(263, 100%, 59%, 0.5);
+$primaryColor2: #2C5AFF;
+$yellow: rgb(255, 248, 123);
+
+$view: rgb(33, 126, 255);
+$delete: rgb(255, 59, 59);
+$edit: rgb(47, 207, 92);

@@ -1,0 +1,181 @@
+@import '../../styles/sub/variables.scss';
+
+
+.error {
+    color: $red;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.main {
+    width: 40vw;
+    max-width: 800px;
+    margin: 2em auto;
+
+    .title {
+        font-weight: bold;
+        color: $black;
+        font-size: 24px;
+        margin: .25em 0;
+    }
+    .button {
+        width: 100%;
+    }
+    hr {
+        width: 40%;
+        margin: 1em auto;
+        border-radius: 100%;
+        opacity: .4;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        margin-top: 1.25em;
+        
+        .subTitle {
+            user-select: none;
+            font-size: 14px;
+            color: $black;
+        }
+        
+        .selectBoxInput {
+            width: 100%;
+            border: 1px solid $border;
+            display: flex;
+
+            input {
+                width: 88%;
+                border: none;
+            }
+            .dropBox {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                width: 12%;
+
+                .active {
+                    background-color: $white-1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    height: 100%;
+                    width: 100%;
+                    font-size: 14px;
+                    padding: 0 .45em;
+                    cursor: pointer;
+                    user-select: none;
+
+                    svg {
+                        font-size: 20px;
+                        transform-origin: center;
+                        transition: 0s;
+                    }
+                }
+                .options {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    top: 100%;
+                    font-size: 14px;
+                    background-color: $white;
+                    border: 1px solid $border;
+                    box-shadow: $shadowX $shadowY $shadowBlur $shadow;
+                    user-select: none;
+                    z-index: 1;
+                    
+                    span {
+                        padding: .45em .5em;
+                        text-align: center;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: $border;
+                        }
+                    }
+                }
+            }
+        }
+        #focused {
+            border-color: $highlightColor;
+        }
+        .optHypertext {
+            text-align: center;
+            font-size: 14px;
+            text-decoration: underline;
+            color: $highlightColor;
+            cursor: pointer;
+        }
+        .titleContainer {
+            display: flex;
+            align-items: center;
+            gap: .35em;
+
+            span {
+                font-size: 12px;
+            }
+        }
+        .hint {
+            font-size: 12px;
+            color: $grey;
+        }
+
+        textarea {
+            font-size: 14px;
+        }
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    .main {
+        width: 70vw;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .main {
+        width: 80vw;
+
+        .container {
+
+            .selectBoxInput {
+
+                .dropBox {
+                    width: 20%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .main {
+        width: 95vw;
+        // margin: 1em auto;
+
+        .title {
+            font-size: 24px;
+        }
+        .container {
+            margin-top: 2em;
+
+            .selectBoxInput {
+
+                .dropBox {
+                    width: 25%;
+                }
+            }
+            .titleContainer {
+                flex-direction: column;
+                align-items: baseline;
+                
+                span {
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}

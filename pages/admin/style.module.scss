@@ -1,0 +1,1042 @@
+@import '../../styles/sub/adminvariables.scss';
+@import '../../styles/sub/animations.scss';
+
+
+.all {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $background;
+
+    .loginContainer {
+        margin: 12vw auto;
+        background-color: $white;
+        padding: 3em 2em;
+        width: 35vw;
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        gap: 1em;
+
+        @include cardShadow;
+
+        h1 {
+            color: $black-1;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+            width: 100%;
+            
+
+            #focus {
+                border-color: $primaryColor1-1;
+            }
+            #colored {
+                color: $primaryColor1;
+            }
+
+
+            .field {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                background-color: $inputColor;
+                border-radius: 8px;
+                padding: 0 .5em;
+                border: 1px solid transparent;
+
+                input {
+                    width: 90%;
+                    background-color: transparent;
+                    border: none;
+                    padding: 1em 0;
+                    text-indent: .5em;
+                }
+                svg {
+                    width: 10%;
+                    color: $grey;
+                }
+            }
+            button {
+                border-radius: 8px;
+                margin-top: .5em;
+                background: $primaryGradient;
+
+                @include animatedGradient;
+
+                &:hover {
+                    transform: unset;
+                    background-position: 200% 200% !important;
+                }
+            }
+        }
+    }
+}
+
+.panelContainer {
+    background-color: $background;
+    display: flex;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    
+    .side {
+        width: fit-content;
+        position: relative;
+        height: 100%;
+        background-color: $white;
+        @include cardShadow;
+        z-index: 1;
+        position: relative;
+
+        * {
+            user-select: none;
+            transition: none !important;
+        }
+        .collapse {
+            position: absolute;
+            top: 1.5em;
+            left: 2em;
+            scale: 2.5;
+            cursor: pointer;
+            color: $primaryColor1;
+            border-radius: 100%;
+
+            &:active {
+                background-color: $greyTransp;
+            }
+        }
+        .disconnect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: $white;
+            color: $red;
+            transition: .2s ease-out all !important;
+
+            &:hover {
+                transform: unset;
+                background-color: $red;
+                color: $white;
+            }
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            // gap: 1em;
+            position: relative;
+            top: 45%;
+            transform: translateY(-50%);
+            padding-left: 0;
+            gap: .35em;
+            color: $black-1;
+
+            #selected {
+                color: $primaryColor1;
+            }
+
+            li {
+                padding: .5em 3em;
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                cursor: pointer;
+                
+                svg {
+                    font-size: 24px;
+                }
+                span {
+                    font-weight: 600;
+                    white-space: nowrap;
+                }
+                &:hover {
+                    opacity: .9;
+                }
+            }
+            .dropdown {
+                flex-direction: column;
+                align-items: baseline;
+                gap: .5em;
+
+                &:hover {
+                    background-color: unset;
+                }
+
+                .main {
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+                }
+                .sub {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0em;
+                    padding: 0;
+                    
+                    li {
+                        margin-left: 1em;
+                        font-size: 14px;
+                        word-break: normal;
+                        white-space: nowrap;
+                        font-weight: 500;
+                        cursor: pointer;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .sideClosed {
+        position: relative;
+        width: fit-content;
+        height: 100%;
+        background-color: $white;
+        @include cardShadow;
+        z-index: 1;
+
+        * {
+            user-select: none;
+            transition: none !important;
+        }
+        .collapse {
+            position: absolute;
+            top: 1.5em;
+            left: 50%;
+            translate: -50% 0;
+            scale: 2.5;
+            cursor: pointer;
+            color: $primaryColor1;
+            border-radius: 100%;
+
+            &:active {
+                background-color: $greyTransp;
+            }
+        }
+        .disconnect {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: $white;
+            color: $red;
+            transition: .2s ease-out all !important;
+            padding: 1em 0;
+
+            &:hover {
+                transform: unset;
+                background-color: $red;
+                color: $white;
+            }
+            svg {
+                font-size: 24px;
+            }
+            span {
+                display: none;
+            }
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-left: 0;
+            color: $black-1;
+
+            #selected {
+                color: $primaryColor1;
+            }
+
+            li {
+                padding: .5em 1em 0 1.5em;
+                display: flex;
+                align-items: center;
+                gap: 1em;
+                cursor: pointer;
+                
+                svg {
+                    font-size: 30px;
+                }
+                span {
+                    display: none;
+                }
+                &:hover {
+                    opacity: .9;
+                }
+            }
+            .dropdown {
+                flex-direction: column;
+                align-items: baseline;
+                gap: .5em;
+
+                &:hover {
+                    background-color: unset;
+                }
+
+                .main {
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+                }
+                .sub {
+                    li {
+                        display: none;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .view {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        background-color: $background;
+        width: 100%;
+        height: 100%;
+        padding: 2em;
+        overflow-y: auto;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .title {
+            font-size: 24px;
+            color: $black-1;
+            user-select: none;
+        }
+        .title2 {
+            font-size: 20px;
+            color: $black-1;
+            user-select: none;
+        }
+        .content {
+            padding: 2em;
+            border-radius: 12px;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            // gap: 1.5em;
+            
+            @include cardShadow;
+    
+            .categories {
+                display: flex;
+                gap: .5em;
+                margin-bottom: .5em;
+
+                button {
+                    border-radius: 6px;
+                    border: 2px solid $greyTransp;
+                    background-color: transparent;
+                    color: $grey;
+                    font-size: 14px;
+                    font-weight: 500;
+
+                    &:hover {
+                        transform: unset;
+                        @include inputShadow;
+                    }
+                }
+                #selected {
+                    background-color: $background;
+                    border-color: $primaryColor1-1;
+                }
+            }
+
+            hr {
+                width: 40%;
+                border-radius: 100%;
+                opacity: .2;
+                margin: .75em auto;
+            }
+
+            .searchContainer {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+                
+                .search {
+                    border: 1px solid transparent;
+                    border-radius: 6px;
+                    border-color: transparent;
+                    background-color: $inputColor;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1em;
+                    
+                    svg {
+                        opacity: .75;
+                        color: $black-1;
+                    }
+                    
+                    input {
+                        width: 100%;
+                        border: none;
+                        background-color: transparent;
+                        text-indent: 0;
+                        padding: 1em 0;
+                        text-indent: 1em;
+                    }
+                }
+                #focus {
+                    border-color: $primaryColor1-1;
+                }
+                
+                button {
+                    background: $primaryGradient;
+                    font-size: 24px;
+                    padding: .4em;
+                    border-radius: 6px;
+                    
+                    @include animatedGradient;
+
+                    &:hover {
+                        padding: .4em .5em;
+                        transform: unset;
+                    }
+                }
+            }
+            .result {
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+                overflow-y: auto;
+                max-height: 62vh;
+
+                .post {
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: $white;
+                    border-radius: 6px;
+                    border: 1px solid $greyTransp;
+                    padding: .5em;
+
+                    // @include inputShadow;
+                    
+                    .sec1 {
+                        display: flex;
+                        align-items: center;
+                        gap: .75em;
+
+                        .img {
+                            height: 3em;
+                            border-radius: 3px;
+                            aspect-ratio: 1/1;
+                            background-color: $greyTransp;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+                        p {
+                            font-weight: 600;
+                            color: $black-1;
+                        }
+                    }
+                    .sec2 {
+                        display: flex;
+                        align-items: center;
+                        gap: .5em;
+                        padding-right: 1em;
+
+
+                        .button {
+                            display: flex;
+                            align-items: center;
+                            cursor: pointer;
+                            font-size: 22px;
+                            color: $white;
+                            background-color: $primaryColor1;
+                            
+                            padding: .35em;
+                            border-radius: 3px;
+
+                            &:hover {
+                                // background-color: $primaryColor2;
+                                padding: .35em .4em;
+                            }
+                        }
+
+                        #delete {
+                            background-color: $delete;
+                        }
+                        #check {
+                            background-color: $edit;
+                        }
+
+                        // #view{
+                        //     color: $view;
+                        // }
+                        // #edit{
+                        //     color: $edit;
+                        // }
+                        // #delete{
+                        //     color: $delete;
+                        // }
+                    }
+                }
+            }
+            .dataManagementTools {
+                margin-top: 2em;
+                display: flex;
+                justify-content: flex-end;
+                gap: .5em;
+
+                button {
+                    display: flex;
+                    align-items: center;
+                    gap: .5em;
+                    border-radius: 6px;
+                    padding: .75em 1.25em;
+                    background: $primaryGradient;
+
+                    @include animatedGradient;
+
+                    svg {
+                        font-size: 22px;
+                    }
+                    &:hover {
+                        transform: unset;
+                        padding: .75em 1.5em;
+                    }
+                }
+            }
+        }
+        .emailTable {
+            background-color: $white;
+            thead {
+                background-color: $inputColor;
+                th {
+                    padding: .5em;
+                }
+                :nth-child(2){
+                    text-align: left;
+                }
+            }
+            tbody {
+                tr + :nth-child(2n){
+                    background-color: $inputColor;
+                }
+                tr {
+                    td {
+                        font-weight: 500;
+                        font-size: 15px;
+                        padding: .25em;
+                    }
+                    :nth-child(1){
+                        text-align: center;
+                    }
+                    :nth-child(2) {
+                        text-align: left;
+                    }
+                    :nth-child(3){
+                        text-align: center;
+                    }
+                    :nth-child(4) {
+                        text-align: center;
+                        svg {
+                            color: $delete !important;
+                            cursor: pointer;
+                            height: 16px;
+                            width: 16px;
+
+                            &:hover {
+                                opacity: .7;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .feedbackTable {
+            background-color: $white;
+            thead {
+                background-color: $inputColor;
+                th {
+                    padding: .5em;
+                }
+                :nth-child(1){
+                    width: 5%;
+                }
+                :nth-child(2){
+                    text-align: left;
+                    width: 20%;
+                }
+                :nth-child(3){
+                    text-align: left;
+                    width: 50%;
+                }
+                :nth-child(4){
+                    width: 15%;
+                }
+                :nth-child(5){
+                    width: 10%;
+                }
+            }
+            tbody {
+                tr + :nth-child(2n){
+                    background-color: $inputColor;
+                }
+                tr {
+                    td {
+                        padding: .25em;
+                        font-size: 15px;
+                        font-weight: 500;
+                    }
+                    :nth-child(1){
+                        text-align: center;
+                        width: 5%;
+                    }
+                    :nth-child(2){
+                        text-align: left;
+                        width: 20%;
+                    }
+                    :nth-child(3){
+                        text-align: left;
+                        max-width: 0em;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    :nth-child(4){
+                        text-align: center;
+                        width: 15%;
+                    }
+                    :nth-child(5){
+                        text-align: center;
+
+                        svg {
+                            height: 16px;
+                            width: 16px;
+                            cursor: pointer;
+
+                            &:hover {
+                                opacity: .7;
+                            }
+                        }
+                        #view{
+                            color: $primaryColor1;
+                        }
+                        #delete{
+                            color: $delete !important;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.noData {
+    text-align: center;
+    font-size: 14px;
+    color: $black-1;
+    margin-top: 1em;
+}
+
+.card {
+    padding: 1em;
+    background-color: $white;
+    border-radius: 12px;
+    width: 40vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+        .loadingOverlay {
+            height: 100%;
+            width: 100%;
+            background: rgba(60, 81, 126, 0.25);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            border-radius: 12px;
+            animation: opacityAnimation 1s ease-out;
+            
+        }
+
+    @include cardShadow;
+
+    h2 {
+        font-size: 20px;
+    }
+    hr {
+        border-radius: 100%;
+        opacity: .2;
+        margin: .75em 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+
+        #completed {
+            background-color: $green;
+        }
+        #pending {
+            background-color: $yellow;
+        }
+
+        .imageContainer {
+            display: flex;
+            gap: .5em;
+            
+            .img {
+                height: 6em;
+                width: 6em;
+                border-radius: 6px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: $inputColor;
+                cursor: pointer;
+                border: 2px solid transparent;
+
+                &:hover {
+                    border-color: $primaryColor1;
+                }
+
+                @include inputShadow;
+            }
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            gap: .35em;
+            border-radius: 8px;
+            background: $primaryGradient;
+            padding: .75em 1em; 
+            width: 100%;
+            justify-content: center;
+            @include animatedGradient;
+
+            span {
+                color: $white;
+                font-weight: 600;
+            }
+
+            svg {
+                color: $white;
+                font-size: 20px;
+            }
+
+            &:hover {
+                transform: unset;
+                background-position: 200% 200% !important;
+            }
+        }
+
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: .5em;
+    }
+
+    input {
+        width: 100%;
+        background-color: $inputColor;
+        border-color: transparent;
+        border-radius: 8px;
+        padding: 1em 0;
+        text-indent: 1.5em;
+
+        &:focus {
+            border-color: $primaryColor1-1;
+        }
+    }
+    textarea {
+        width: 100%;
+        background-color: $inputColor;
+        border-color: transparent;
+        border-radius: 8px;
+        padding: 1em;
+
+        &:focus {
+            border-color: $primaryColor1-1;
+        }
+    }
+    button {
+        display: flex;
+        align-items: center;
+        border-radius: 8px;
+        background: $primaryGradient;
+        @include animatedGradient;
+
+        svg {
+            font-size: 20px;
+        }
+
+        &:hover {
+            transform: unset;
+            background-position: 200% 200% !important;
+        }
+    }
+    .existingImgsDiv {
+        display: flex;
+        flex-direction: column;
+        gap: .25em;
+
+        .imgContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $white;
+            border: 1px solid $greyTransp;
+            border-radius: 6px;
+            padding: .5em;
+            padding-right: 1em;
+
+            .info {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                .img {
+                    background-color: $inputColor;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 2.25em;
+                    width: 2.25em;
+                    border-radius: 3px;
+                }
+                p {
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+            .delete {
+                transform-origin: center;
+                scale: 1.5;
+                cursor: pointer;
+                color: $delete;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+@media only screen and (max-width:1200px) {
+    .all {
+        .loginContainer {
+            width: 50vw;
+        }
+    }
+}
+@media only screen and (max-width:1000px) {
+    .card {
+        width: 60vw;
+    }
+}
+@media only screen and (max-width:800px) {
+    .card {
+        width: 68vw;
+    }
+    .all {
+        .loginContainer {
+            width: 70vw;
+        }
+    }
+    .panelContainer {
+        .sideClosed {
+            .options {
+                li {
+                    padding: 0.5em 0em 0 1em;
+                    svg {
+                        font-size: 24px;
+                    }
+                }
+            }
+            .collapse {
+                scale: 2;
+            }
+        }
+        .side {
+            position: fixed;
+            left: 0;
+            top: 0;
+            .options {
+                li {
+                    padding: 0.35em 2em;
+                }
+                svg {
+                    font-size: 20px;
+                }
+                span {
+                    font-size: 14px;
+                }
+                .dropdown {
+                    .sub {
+                        li {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        .view {
+            padding: 1em;
+            gap: 1.5em;
+        }
+    }
+}
+@media only screen and (max-width:700px) {
+    .card {
+        width: 93vw;
+    }
+    .panelContainer {
+        overflow-x: hidden;
+    }
+    .panelContainer .view table {
+        max-width: 100%;
+    }
+    .panelContainer .view .emailTable tbody tr :nth-child(1) {
+        width: 3%;
+    }
+    .panelContainer .view .emailTable tbody tr :nth-child(2) {
+        width: 67%;
+        word-break: break-all;
+    }
+    .panelContainer .view .emailTable tbody tr :nth-child(3) {
+        width: 20%;
+        word-wrap: break-word;
+    }
+    .panelContainer .view .emailTable tbody tr :nth-child(4) {
+        svg {
+            height: 24px;
+            width: 24px;
+        }
+        width: 10%;
+    }
+    .panelContainer .view .content {
+        padding: .5em;
+    }
+    .panelContainer .sideClosed .options li {
+        display: none;
+    }
+    .panelContainer .view .title {
+        font-size: 18px;
+        margin-left: 1em;
+    }
+    .panelContainer .view .title2 {
+        font-size: 16px;
+    }
+    .panelContainer .sideClosed .collapse {
+        margin: 0 1.75em;
+        background: $white;
+        color: $primaryColor1;
+        scale: 2.5;
+        border-radius: 3px;
+        @include inputShadow;
+    }
+    .panelContainer .view {
+        padding: .25em;
+        padding-top: 4em;
+    }
+    .panelContainer .side {
+        animation: slideFromLeft .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .panelContainer .side .options li {
+        padding: .5em 6em .5em 2.5em;
+    }
+    .panelContainer .side .options span {
+        font-size: 17px;
+    }
+    .panelContainer .side .options .dropdown .sub li {
+        font-size: 14px;
+    }
+    .panelContainer .view .content .result .post .sec1 {
+        gap: .5em;
+    }
+    .panelContainer .view .content .result .post .sec1 .img {
+        height: 2em;
+    }
+    .panelContainer .view .content .result .post .sec2 .button {
+        font-size: 18px;
+    }
+    .panelContainer .view .content .result .post .sec2  {
+        padding-right: 0;
+        gap: .25em;
+    }
+    .panelContainer .view .content .result .post .sec1 p {
+        font-size: 14px;
+    }
+    .panelContainer .view .content .result .post .sec1 span {
+        font-size: 12px;
+        width: 11em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+    }
+
+    .panelContainer .view .feedbackTable tbody tr :nth-child(1) {
+        // width: 3% !important;
+    }
+    .panelContainer .view .feedbackTable tbody tr :nth-child(2) {
+        // width: 38% !important;
+        word-break: break-all;
+    }
+    .panelContainer .view .feedbackTable tbody tr :nth-child(3) {
+        // width: 38% !important;
+        word-wrap: break-word;
+    }
+    .panelContainer .view .feedbackTable tbody tr :nth-child(4) {
+        // width: 15% !important;
+    }
+    .panelContainer .view .feedbackTable tbody tr :nth-child(5) {
+        svg {
+            margin-left: .25em;
+            height: 24px;
+            width: 24px;
+        }
+    }
+}
+@media only screen and (max-width:600px) {
+    .all {
+        background-color: $white;
+        .loginContainer {
+            background-color: transparent;
+            width: 95vw;
+            box-shadow: unset;
+            margin-top: 12em;
+            padding: .5em;
+        }
+    }
+}
+
+
+@keyframes opacityAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

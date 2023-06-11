@@ -1,0 +1,323 @@
+@import '../styles/sub/variables.scss';
+@import '../styles/sub/animations.scss';
+
+.sideNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    // padding-top: 8em;
+    animation: slideFromLeft .25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    p {
+        color: $white;
+        font-size: 22px;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+            font-size: 24px;
+        }
+    }
+    svg {
+        position: absolute;
+        top: 1.5em;
+        right: 1.5em;
+        color: $white;
+        transform-origin: center;
+        scale: 1.85;
+        cursor: pointer;
+
+        &:hover {
+            scale: 2;
+        }
+        &:active {
+            scale: 1.85;
+        }
+    }
+}
+
+.navbar {
+    background-color: $white;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: sticky;
+
+    .section1 {
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .35em 2em;
+        position: relative;
+        z-index: 5;
+        
+        .navTools {
+            display: flex;
+            align-items: center;
+            gap: .75em;
+            svg {
+                display: none;
+                cursor: pointer;
+                position: absolute;
+                left: 0;
+                height: 100%;
+                width: 3.5em;
+                padding: .25em;
+                color: $white;
+                background-color: $black;
+
+                &:active {
+                    background-color: $black-1;
+                }
+            }
+        }
+
+
+        .subsection {
+            display: flex;
+            align-items: center;
+            gap: 1.5em;
+
+            .social {
+                display: flex;
+                gap: 1em;
+                padding: 0;
+                align-items: center;
+                
+                li {
+                    color: $black;
+
+                    a {
+                        z-index: 3;
+                    }
+                    
+                    svg {
+                        cursor: pointer;
+                        font-size: 20px;
+                        color: $black-1;
+
+                        &:hover {
+                            transform: scale(1.075);
+                            transform-origin: center;
+                        }
+                    }
+                }
+            }
+            .lang {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                li {
+                    display: flex;
+                    gap: .5em;
+                    cursor: pointer;
+                }
+                .selectboxSelected {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: .5em;
+                    padding: .5em .75em;
+                    border: 1.5px solid $border;
+                    cursor: pointer;
+                    width: 100%;
+
+                    &:hover {
+                        border-color: $highlightColor;
+                    }
+
+                    svg {
+                        color: $black;
+                        transition: 0s !important;
+                    }
+                    li::selection {
+                        color: none;
+                        background: none;
+                    }
+                    p {
+                        span {
+                            margin-right: .5em;
+                        }
+                    }
+                    
+                }
+                .selectBox {
+                    position: absolute;
+                    top: 100%;
+                    border: 1.5px solid $border;
+                    width: calc(79%);
+                    z-index: 3;
+                    box-shadow: $shadowX $shadowY $shadowBlur $shadow;
+                    
+                    li {
+                        background-color: $white;
+                        padding: .5em .75em;
+                    }
+                    li:hover {
+                        background-color: $highlight;
+                    }
+                }
+            }
+        }
+    }
+
+    .section2 {
+        border-top: 1px solid $border;
+        z-index: 5;
+        
+        .collapse {
+            display: none;
+            position: relative;
+            cursor: pointer;
+            opacity: .8;
+            
+            svg {
+                background-color: $black;
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: $white;
+                transform-origin: center;
+                transform: scale(.9);
+                font-size: 50px;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            li {
+                border-bottom: 2px solid transparent;
+                font-size: 15px;
+                // padding: .75em 0;
+           
+                a {
+                    color: $black;
+                    padding: .75em 1em;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: .35em;
+
+                    i {
+                        display: flex;
+                        align-items: center;
+                        color: $black-1;
+                        font-size: 18px;
+                    }
+                }
+                #white {
+                    color: $white;
+
+                    i {
+                        color: $white;
+                    }
+                }
+            }
+            #underlineHover {
+                border-color: $primary;
+            }
+            #primary {
+                background-color: $primary;
+                margin-left: .5em;
+                color: $white;
+
+                &:hover {
+                    background-color: $primary-1;
+                }
+            }
+            .borderActive {
+                border-color: $highlightColor;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:768px)  {
+    .navbar {
+
+        .section1 {
+
+            .navContainer {
+
+                svg {
+                    display: block;
+                }
+            }
+
+            .subsection {
+
+                .lang {
+    
+                    .selectBox {
+                        width: 64%;
+                    }
+                    .selectboxSelected {
+                        
+                        p {
+                            span {
+                                margin-right: 0 !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        #hide {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width:450px) {
+    .navbar {
+        
+        .section1 {
+            padding: 0.5em .95em !important;
+
+            .navTools {
+                svg {
+                    display: block;
+                    
+                }
+                a {
+                    margin-left: 3em;
+                }
+            }
+        }
+        .section2 {
+            .nav {
+                display: none;
+            }
+        }
+
+        #hidePhone {
+            display: none;
+        }
+        .section2 {
+            .collapse {
+                display: block;
+            }
+        }
+    }
+}

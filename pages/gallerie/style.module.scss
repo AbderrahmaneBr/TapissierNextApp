@@ -1,0 +1,387 @@
+@import '../../styles/sub/variables.scss';
+@import '../../styles/sub/fonts.scss';
+
+@mixin softAnimation {
+    &:hover {
+        transform-origin: center;
+        transform: translateY(-2px);
+    }
+}
+@mixin isImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main {
+    max-width: 1200px;
+    width: 80vw;
+    margin: 1em auto;
+
+    h4 {
+        font-weight: bold;
+    }
+    p {
+        margin-top: 1em;
+        text-align: justify;
+        font-size: 13px;
+    }
+    .title {
+        margin-top: 3em;
+        position: relative;
+        width: fit-content;
+
+        h1 {
+            position: relative;
+            font-family: 'Abril';
+            color: $black;
+            font-weight: 400;
+            z-index: 1;
+        }
+        .line {
+            position: absolute;
+            width: 70%;
+            height: .75em;
+            background-color: $image;
+            right: -10%;
+            top: 70%;
+        }
+    }
+    .container1 {
+        margin: 2em 0;
+        display: flex;
+
+        .textContainer {
+            width: 50%;
+        }
+        .imgContainer {
+            width: 50%;
+            position: relative;
+            .img1 {
+                position: absolute;
+                height: 15em;
+                width: 15em;
+                background-color: $border;
+                border-radius: 100%;
+                right: 0;
+                z-index: 1;
+                
+                @include isImage;
+                @include softAnimation;
+                
+            }
+            .img2 {
+                position: relative;
+                height: 30em;
+                width: 30em;
+                background-color: $image;
+                border-radius: 100%;
+
+                @include isImage;
+                @include softAnimation;
+
+            }
+        }
+    }
+    .container2 {
+        display: flex;
+        height: 20em;
+        
+        .textContainer {
+            width: 50%;
+        }
+        .imgContainer {
+            display: flex;
+            width: 50%;
+            position: relative;
+
+            div {
+                position: absolute;
+                width: 10em;
+                height: 10em;
+                background-color: $image;
+                
+                @include isImage();
+                @include softAnimation;
+            }
+            :nth-child(2){
+                margin-left: 13em;
+            }
+            :nth-child(3){
+                margin-top: 3em;
+                margin-left: 3em;
+                z-index: 1;
+            }
+            :nth-child(4){
+                margin-top: 3em;
+                margin-left: 16em;
+                z-index: 1;
+            }
+            :nth-child(5){
+                margin-top: 6em;
+                margin-left: 6em;
+                z-index: 1;
+            }
+            :nth-child(6){
+                margin-top: 6em;
+                margin-left: 19em;
+                z-index: 1;
+            }
+        }
+    }
+
+    .container3 {
+        margin-top: 2em;
+        
+        h4 {
+            text-align: center;
+        }
+        .container {
+            margin: 2em 0;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 5em;
+            
+            .img {
+                height: 18vw;
+                background-color: $image;
+                
+                @include isImage;
+                @include softAnimation;
+            }
+        }
+    }
+
+    .container4 {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 10vw;
+
+        .container1 {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 1em;
+
+            .img {
+                height: 15em;
+                width: 15em;
+                background-color: $image;
+                @include isImage;
+                @include softAnimation;
+            }
+        }
+        .container2 {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            gap: 1em;
+
+            .img {
+                height: 18em;
+                width: 18em;
+                background-color: $image;
+                @include isImage;
+                @include softAnimation;
+            }
+        }
+        .subtitle {
+            font-family: 'Abril';
+            color: $black;
+            font-weight: 400;
+            font-size: 28px;
+            z-index: 1;
+        }
+    }   
+}
+
+@media only screen and (max-width:1200px) {
+    .main {
+        width: 90vw;
+
+        .container1 {
+            justify-content: space-between;
+
+            .imgContainer {
+                width: unset !important;
+
+                .img1 {
+                    display: none;
+                }
+                .img2 {
+                    width: 25em;
+                    height: 25em;
+                }
+            }
+            .textContainer {
+                // width: 30%;
+            }
+        }
+    }
+}
+@media only screen and (max-width:1100px) {
+    .main {
+
+        .container2 {
+            margin-top: 3em;
+            .imgContainer {
+                width: 100%;
+                height: 100%;
+                :nth-child(5){
+                    display: none;
+                }
+                :nth-child(6){
+                    display: none;
+                }
+                div {
+                    height: 7em;
+                    width: 7em;
+                }
+                :nth-child(2){
+                    margin-left: 9em;
+                }
+                :nth-child(4){
+                    margin-left: 12em;
+                }
+            }
+            .textContainer {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .main {
+        .title {
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        .container2 {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 2em;
+            margin-bottom: 15vw;
+
+            .imgContainer {  
+                // padding: 0 17vw; 
+                gap: 1vw;         
+                :nth-child(1){
+                    margin-left: 15vw;
+                }
+                :nth-child(2){
+                    margin-left: 50vw;
+                }
+                :nth-child(3){
+                    margin-left: 25vw;
+                    margin-top: 10vw;
+                }
+                :nth-child(4){
+                    margin-left: 60vw;
+                    margin-top: 10vw;
+                }
+                :nth-child(5){
+                    display: block;
+                    margin-left: 35vw;
+                    margin-top: 20vw;
+                }
+                :nth-child(6){
+                    display: block;
+                    margin-left: 70vw;
+                    margin-top: 20vw;
+                }
+                div {
+                    width: 20vw;
+                    height: 20vw;
+                }
+            }
+        }
+        .container3 {
+            .container {
+                grid-template-columns: auto;
+                gap: 3em;
+                .img {
+                    height: 45vw;
+                }
+            }
+            h4 {
+                text-align: left;
+            }
+        }
+        .container4 {
+            margin: 0 5vw;
+
+            .container1 {
+                gap: 1.5vw;
+                .img {
+                    height: 30vw;
+                    width: 30vw;
+                }
+            }
+            .container2 {
+                gap: 1.5vw;
+                .img {
+                    height: 35vw;
+                    width: 35vw;
+                }
+            }
+            .subtitle {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .main {
+        margin: 0 auto;
+        padding: 0;
+        width: 100vw;
+
+        .title {
+            h1 {
+                padding: 0 .5em;
+            }
+        }
+        
+        .container1 {
+            flex-direction: column;
+
+            .textContainer {
+                padding: 0 1em;
+                width: 100%;
+            }
+            .imgContainer {
+                .img2 {
+                    margin: 2em auto;
+                    border-radius: 0;
+                    width: 100%;
+                    height: unset;
+                    aspect-ratio: 3/2;
+                }
+            }
+        }
+        .container2 {
+            .imgContainer {
+                margin-bottom: 3em;
+            }
+            .textContainer {
+                padding: 0 1em;
+                width: 100%;
+            }
+        }
+        .container3 {
+            margin-top: 5em ;
+            h4 {
+                padding: 0 1em;
+            }
+        }
+        p {
+            padding: 0 1em;
+            
+        }
+    }
+}

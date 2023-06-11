@@ -1,0 +1,131 @@
+@import '../../styles/sub/variables.scss';
+
+@mixin softAnimation {
+    &:hover {
+        transform-origin: center;
+        transform: translateY(-1px);
+    }
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    margin-top: 3em;
+
+    h2 {
+        color: $black;
+    }
+    h4 {
+        color: $black;
+        font-weight: 400;
+    }
+    .questions {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+        gap: .35em;
+        width: 60vw;
+        max-width: 700px;
+
+        .card {
+            background-color: $white-1;
+            display: flex;
+            gap: .75em;
+            padding: 1em;
+            border-radius: 3px;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            cursor: pointer;
+            position: relative;
+            
+            svg {
+                // align-self: center;
+                color: $grey;
+                min-width: 8%;
+            }
+            .collapseIcon {
+                position: absolute;
+                right: 1em;
+                top: 50%;
+                translate: 0 -50%;
+                color: $black;
+                font-size: 20px;
+            }
+            #active {
+                .questionContainer {
+                    svg {
+                        transform-origin: center;
+                        rotate: 180deg;
+                    }
+                }   
+                h5 {
+                    display: none;
+                }
+            }
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: .25em;
+                position: relative;
+
+
+                .questionContainer {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    
+                }
+
+                h4, h5 {
+                    word-break: break-word;
+                    white-space: normal;
+                    max-width: 85%;
+                    color: $black;
+                }
+                h4 {
+                    font-weight: bold;
+                }
+                h5 {
+                    text-align: justify;
+                    font-weight: 500;
+                }
+            }
+
+            @include softAnimation;
+        }
+        
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .main {
+        .questions {
+            width: 85vw;
+            .card {
+
+                svg {
+                    min-width: 10%;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .main {
+        margin: 3em 1em;
+        .questions {
+            width: 95vw;
+            .card {
+                svg {
+                    min-width: 8%;
+                }
+            }
+        }
+    }
+}

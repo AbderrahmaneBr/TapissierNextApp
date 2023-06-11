@@ -1,0 +1,53 @@
+
+.blurBackdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    animation: fadeIn .25s ease-out;
+    z-index: 3;
+}
+.blackBackdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0);
+    animation: fadeIn .25s ease-out;
+    z-index: 3;
+}
+
+.content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    // animation: popUp .25s ease-out;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        margin-top: 1em;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
