@@ -175,7 +175,6 @@ const AddPost = (props) => {
                         (error) => {
                             // Handle errors
                             // Sweet Alert Pop up :( ERROR
-                            console.log(error)
                             toast.error("An Error Has Occurred While Uploading Images!", {
                                 position: "bottom-right",
                                 autoClose: 7000,

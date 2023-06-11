@@ -5,13 +5,13 @@ import 'firebase/auth';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAS5VfrdQsTvgAOxVSS8bhW2xoV-MOMN_Q",
-  authDomain: "tapissier-reve.firebaseapp.com",
-  projectId: "tapissier-reve",
-  storageBucket: "tapissier-reve.appspot.com",
-  messagingSenderId: "587124369015",
-  appId: "1:587124369015:web:56e4699f7057b980e94872",
-  measurementId: "G-MGV4MNJTL8"
+  apiKey: process.env.APIKEY,
+  authDomain: process.env.AUTHDOMAIN,
+  projectId: process.env.PROJECTID,
+  storageBucket: process.env.STORAGEBUCKET,
+  messagingSenderId: process.env.MESSAGINGSENDERID,
+  appId: process.env.APPID,
+  measurementId: process.env.MEASUREMENTID
 };
 
 // Initialize Firebase

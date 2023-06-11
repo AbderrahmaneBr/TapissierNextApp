@@ -10,13 +10,13 @@
     "lint": "next lint",
     "export": "next export",
     "out": "next build && next export",
-    "deploy": "firebase deploy"
+    "deploy2": "cross-env NODE_ENV=production firebase deploy --only functions,hosting",
+    "deploy": "firebase deploy --only functions,hosting"
   },
   "dependencies": {
     "dotenv": "^16.0.3",
     "file-saver": "^2.0.5",
     "firebase": "^7.24.0",
-    "firebase-admin": "^11.8.0",
     "firebase-functions": "^4.4.0",
     "flag-icon-css": "^4.1.7",
     "formik": "^2.2.9",
@@ -29,7 +29,6 @@
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-error-boundary": "^4.0.4",
     "react-firebase-hooks": "^3.0.0",
     "react-i18next": "^12.2.0",
     "react-icons": "^4.8.0",
@@ -39,5 +38,9 @@
     "uuid": "^9.0.0",
     "xlsx": "^0.18.5",
     "yup": "^1.1.1"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "devDependencies": {},
+  "author": "Abderrahmane Bourri",
+  "license": "ISC"
 }

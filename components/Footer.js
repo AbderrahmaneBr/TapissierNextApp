@@ -90,7 +90,7 @@ const Footer = () => {
             </ul>
             <ul className={styles.sec1}>
                 <li><h3>{t('footer-navigation-title')}</h3></li>
-                <li><Link href='/home'>{t('home')}</Link></li>
+                <li><Link href='/'>{t('home')}</Link></li>
                 {/* <li><Link href='/premade'>{t('premade')}</Link></li> */}
                 <li><Link href='/gallerie'>{t('gallerie')}</Link></li>
                 <li><Link href='/contact'>{t('contact-us')}</Link></li>

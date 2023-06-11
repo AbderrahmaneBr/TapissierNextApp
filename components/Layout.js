@@ -10,7 +10,6 @@ const Layout = ({ children }) => {
     if (!shouldDisplayLayout) {
         return <div>{children}</div>;
     }
-    
 
     return ( 
         <>
