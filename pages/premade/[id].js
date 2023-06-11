@@ -3,9 +3,9 @@ import styles from './style.module.scss'
 import { BsBoxes, BsCart, BsHouseDoorFill } from 'react-icons/bs'
 import { RxCaretRight, RxCaretLeft } from 'react-icons/rx'
 import { useState, useRef, useEffect } from 'react';
-import ProductCard from '@/components/premade/productCard';
-import BlurBackdrop from '@/components/backdrops/blurBackdrop';
-import BlackBackdrop from '@/components/backdrops/blackBackdrop';
+import ProductCard from '@/components/premade/ProductCard';
+import BlurBackdrop from '@/components/backdrops/BlurBackdrop';
+import BlackBackdrop from '@/components/backdrops/BlackBackdrop';
 import { IoMdSend } from 'react-icons/io';
 import { useRouter } from 'next/router';
 import * as Yup from 'yup'

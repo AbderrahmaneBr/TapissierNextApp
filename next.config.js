@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 require('dotenv').config();
 const nextConfig = {
+  reactStrictMode: true,
   env: {
     APIKEY: process.env.APIKEY,
     AUTHDOMAIN: process.env.AUTHDOMAIN,
@@ -9,8 +10,7 @@ const nextConfig = {
     MESSAGINGSENDERID: process.env.MESSAGINGSENDERID,
     APPID: process.env.APPID,
     MEASUREMENTID: process.env.MEASUREMENTID,
-  },
-  
+  }
 }
 
 module.exports = nextConfig
