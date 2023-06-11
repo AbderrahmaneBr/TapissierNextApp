@@ -26,7 +26,7 @@ const DropFileInput = (props) => {
     }
     const onFileDrop = (e) => {
         const newFile = e.target.files[0];
-        if (newFile) {
+        if (fileList && newFile) {
             //Processing new uploaded file
             if (fileList.length<4){
                 if (allowedTypes.includes(newFile.type)){
@@ -64,7 +64,7 @@ const DropFileInput = (props) => {
                 <input type='file' value="" onChange={onFileDrop} />
             </div>
             {
-                fileList.length > 0 ? (
+                fileList && fileList.length > 0 ? (
                     <div className={styles.preview}>
                         <h2 className={styles.subTitle}>{t('restore-files-text')}</h2>
                         { fileList.map((item, index) => (
